@@ -4,6 +4,9 @@
   <meta charset='utf-8'>
   <title>Bowling Score</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/pure-min.css">
+
   <script src='lib/angular.min.js'></script>
   <script src='scripts/controllers.js'></script>
 
@@ -17,14 +20,13 @@
   <h3>Frame numéro: {{ gameData.frameNumber }} </h3>
   <h3>Lancer numéro: {{ gameData.lancerNumber }} </h3>
   <h3>Quilles touchés: {{ gameData.quillesNumber }} </h3>
-
   <h2>Score actuel: {{ gameData.score }} </h2>
 
-  <button ng-show='showPlayButton' ng-click='startGame()'> Jouer </button>
+  <button class="pure-button pure-button-primary" ng-show='showPlayButton' ng-click='startGame()'> Jouer </button>
   <br>
-  <button ng-show='showLaunchButton' ng-click='getGameDataFromServer(gameData.frameNumber + 1)'> Lancer </button>
-  <br>
-  <button ng-show='showLaunchButton' ng-click='restartGame()'> Recommencer </button>
+  <button class="pure-button button-success" ng-show='showLaunchButton' ng-click='getGameDataFromServer(gameData.frameNumber + 1)'> Lancer </button>
+  <br><br>
+  <button class="pure-button button-secondary button-small" ng-show='showLaunchButton' ng-click='restartGame()'> Recommencer </button>
 
   </div>
 
