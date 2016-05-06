@@ -18,10 +18,15 @@ myApp.controller('MyController', ['$scope', '$http', function($scope, $http) {
 	}
 
 	$scope.getGameDataFromServer = function(frameNumber) {
-		console.log(frameNumber);
-		var dataToGet = 'data/gamedataframe' + frameNumber + '.json';
-		$http.get(dataToGet).success(function(dataReceived) {
-			$scope.gameData = dataReceived;
-		});
+		if(frameNumber > 5) {
+			$scope.showPlayButton = true;
+			$scope.showLaunchButton = false;
+		}
+		else {
+			var dataToGet = 'data/gamedataframe' + frameNumber + '.json';
+			$http.get(dataToGet).success(function(dataReceived) {
+				$scope.gameData = dataReceived;
+			});
+		}
 	}
 }]);
